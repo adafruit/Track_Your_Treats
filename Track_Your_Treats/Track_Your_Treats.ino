@@ -46,7 +46,7 @@ void halt(const __FlashStringHelper *error) {
   }
 }
 
-// Timer interrupt called every millisecond. to check for new data from the GPS.
+// Timer interrupt called every millisecond to check for new data from the GPS.
 SIGNAL(TIMER0_COMPA_vect) {
   // Check for new GPS data.
   GPS.read();
@@ -70,6 +70,7 @@ void logLocation(const char* note) {
 void setup() {
   // Initialize serial port.
   Serial.begin(115200);
+  Serial.println(F("Track your Treats - Ultimate GPS Shield"));
 
   // Initialize LED and button.
   pinMode(LED_PIN, OUTPUT);
